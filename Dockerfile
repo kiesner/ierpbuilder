@@ -1,5 +1,7 @@
 FROM microsoft/vsts-agent:ubuntu-16.04
 
+RUN apt-get update && apt-get upgrade
+
 RUN apt-get install r-base libcurl4-openssl-dev
 RUN R -e 'install.packages(c("quantmod", "data.table", "readxl", "stringr", "pbapply", "parallel", "forecast", "trend", "zoo", "tsoutliers", "lubridate", "gsubfn"), repos = c("https://cloud.r-project.org/","http://cloud.r-project.org/"))'
 
